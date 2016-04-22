@@ -1,9 +1,33 @@
-<h1><%= @friend.name %></h1>
-<p><%= @friend.city %></p>
-<p><%= @friend.profession %></p>
-<p><%= @friend.inspirations %></p>
-<p><%= @friend.likes %></p>
-<p><%= @friend.accomplishments %></p>
-<p><%= @friend.notes %></p>
+<%- model_class = Friend -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<%= link_to 'Edit', edit_friend_path %>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @friend.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @friend.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:profession) %>:</strong></dt>
+  <dd><%= @friend.profession %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:inspirations) %>:</strong></dt>
+  <dd><%= @friend.inspirations %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:likes) %>:</strong></dt>
+  <dd><%= @friend.likes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:accomplishments) %>:</strong></dt>
+  <dd><%= @friend.accomplishments %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notes) %>:</strong></dt>
+  <dd><%= @friend.notes %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @friend.user_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              friends_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_friend_path(@friend), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              friend_path(@friend),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
