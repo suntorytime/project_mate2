@@ -1,0 +1,37 @@
+<h1>Edit <%= @friend.name %></h1>
+
+<%= form_for :friend, url: friend_path(@friend), method: :patch do |f| %><br>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :city %>
+		<%= f.text_field :city %>
+	</p>
+	<p>
+		<%= f.label :profession %>
+		<%= f.text_field :profession %>
+	</p>
+	<p>
+		<%= f.label :inspirations %>
+		<%= f.text_field :inspirations %>
+	</p>
+	<p>
+		<%= f.label :likes %>
+		<%= f.text_field :likes %>
+	</p>
+	<p>
+		<%= f.label :accomplishments %>
+		<%= f.text_field :accomplishments %>
+	</p>
+	<p>
+		<%= f.label :notes %>
+		<%= f.text_field :notes %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<%= link_to 'Delete', friend_path(@friend), method: :delete, data: { confirm: 'Are you sure?'}%>
