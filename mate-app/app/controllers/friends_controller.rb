@@ -1,6 +1,8 @@
 class FriendsController < ApplicationController
+	before_action :authenticate_user!
+
 	def index
-		@friends = Friend.all
+		@friends = current_user.friends
 	end
 
 	def new
@@ -8,7 +10,7 @@ class FriendsController < ApplicationController
 	end
 
 	def create
-		@friend = Friend.new(friend_params)
+		@friend = current_user.friends.build(friend_params)
 
 		@friend.save
 		redirect_to @friend
@@ -26,7 +28,7 @@ class FriendsController < ApplicationController
 		@friend = Friend.find(params[:id])
 
 		if @friend.update(friend_params)
-			redirect_to @friend 
+			redirect_to @friend
 		else
 			render 'edit'
 		end
@@ -35,19 +37,19 @@ class FriendsController < ApplicationController
 	def destroy
 		@friend = Friend.find(params[:id])
 		@friend.destroy
-		
+
 		redirect_to friends_path
 	end
 
 	private
 	def friend_params
 		params.require(:friend).permit(
-			:name, 
-			:city, 
-			:profession, 
-			:inspirations, 
-			:likes, 
-			:accomplishments, 
+			:name,
+			:city,
+			:profession,
+			:inspirations,
+			:likes,
+			:accomplishments,
 			:notes)
 	end
 end
