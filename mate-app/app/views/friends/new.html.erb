@@ -1,5 +1,8 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
 <%- model_class = Friend -%>
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 <%= render :partial => 'form' %>
+</div></div>
