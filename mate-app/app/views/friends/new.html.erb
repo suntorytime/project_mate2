@@ -1,35 +1,8 @@
-<h1>New Friend</h1>
-
-<%= form_for :friend, url: friends_path do |f| %><br>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.label :city %>
-		<%= f.text_field :city %>
-	</p>
-	<p>
-		<%= f.label :profession %>
-		<%= f.text_field :profession %>
-	</p>
-	<p>
-		<%= f.label :inspirations %>
-		<%= f.text_field :inspirations %>
-	</p>
-	<p>
-		<%= f.label :likes %>
-		<%= f.text_field :likes %>
-	</p>
-	<p>
-		<%= f.label :accomplishments %>
-		<%= f.text_field :accomplishments %>
-	</p>
-	<p>
-		<%= f.label :notes %>
-		<%= f.text_field :notes %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+<%- model_class = Friend -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
+</div></div>
