@@ -8,7 +8,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:id) %></th>
+          <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:city) %></th>
           <th><%= model_class.human_attribute_name(:profession) %></th>
@@ -16,15 +16,15 @@
           <th><%= model_class.human_attribute_name(:likes) %></th>
           <th><%= model_class.human_attribute_name(:accomplishments) %></th>
           <th><%= model_class.human_attribute_name(:notes) %></th>
-          <th><%= model_class.human_attribute_name(:user_id) %></th>
-          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <!-- <th><%= model_class.human_attribute_name(:user_id) %></th> -->
+          <!-- <th><%= model_class.human_attribute_name(:created_at) %></th> -->
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
       </thead>
       <tbody>
         <% @friends.each do |friend| %>
           <tr>
-            <td><%= link_to friend.id, friend_path(friend) %></td>
+            <!-- <td><%= link_to friend.id, friend_path(friend) %></td> -->
             <td><%= friend.name %></td>
             <td><%= friend.city %></td>
             <td><%= friend.profession %></td>
@@ -32,8 +32,8 @@
             <td><%= friend.likes %></td>
             <td><%= friend.accomplishments %></td>
             <td><%= friend.notes %></td>
-            <td><%= friend.user_id %></td>
-            <td><%=l friend.created_at %></td>
+            <!-- <td><%= friend.user_id %></td> -->
+            <!-- <td><%=l friend.created_at %></td> -->
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_friend_path(friend), :class => 'btn btn-default btn-xs' %>
